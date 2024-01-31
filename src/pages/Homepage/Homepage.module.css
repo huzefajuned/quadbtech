@@ -1,0 +1,13 @@
+.container {
+    height: 100vh;
+    display: block;
+}
+
+.inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90vw;
+    margin: auto;
+    padding: 10px;
+}

@@ -1,0 +1,159 @@
+.container {
+    display: block;
+    width: 100vw;
+    top: 0px;
+    font-family: monospace;
+    background: linear-gradient(135deg, #fab6af 0%, #aef3fa 100%);
+}
+
+.book_Card {
+    border: 1px solid rgb(255, 255, 255);
+    display: block;
+    width: 60vw;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.book_Card>button {
+    font-family: monospace;
+    font-size: 16px;
+    padding: 5px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: #aef3fa;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.book_Card>button:hover {
+    color: green;
+    background-color: rgb(194, 188, 199);
+    border-radius: 5px;
+    border: 2px solid white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.book_Card>h1 {
+    color: rgb(198, 92, 198);
+    text-shadow: 2px 2px 2px #383434;
+    font-size: 28px;
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+
+.book_Card>h2 {
+    text-align: center;
+    padding: 10px;
+    color: rgb(44, 187, 19);
+    text-shadow: 2px 2px 2px #601414;
+    font-size: 28px;
+    text-align: center;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+
+.book_Card>h2>span {
+    text-shadow: 2px 2px 2px #b4b4b4;
+    color: rgb(149, 20, 166);
+    padding: 5px;
+    font-size: 20px;
+}
+
+.card_Inner {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.card_Inner>input {
+    text-align: left;
+    color: rgb(0, 0, 0);
+    font-family: monospace;
+    margin: 2px;
+    padding: 15px;
+    outline: none;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    letter-spacing: 1px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+}
+
+
+/* final_Ticket and no_Ticket css */
+
+.no_Ticket {
+    background-color: #faf1f1;
+    text-align: center;
+    font-size: 17px;
+    padding: 10px;
+    margin: 100px;
+    font-family: monospace;
+}
+
+.main {
+    width: 80vw;
+    margin: 50px auto;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    border-radius: 20px;
+    background: #d5bba9;
+    background: -webkit-linear-gradient(top left, #d5bba9, #e6d4fe);
+    background: -moz-linear-gradient(top left, #d5bba9, #e6d4fe);
+    background: linear-gradient(to bottom right, #d5bba9, #e6d4fe);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.close_Me {
+    background-color: #b09e9e;
+    width: 100px;
+    height: 30px;
+    float: right;
+    border: none;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.final_Ticket {
+    font-size: 16px;
+    width: 80vw;
+    margin: 10px auto;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+}
+
+.left {
+    width: 50%;
+    padding: 10px;
+    border-right: 2px solid rgb(186, 183, 183);
+    /* background-color: rgb(12, 12, 84); */
+}
+
+.right {
+    width: 50%;
+    padding: 10px;
+    /* background-color: wheat; */
+}
+
+.left>h3>span,
+.right>h3>span {
+    /* background-color: #383434; */
+    color: rgb(205, 50, 50);
+    float: right;
+    font-size: 15px;
+    margin-bottom: 2px;
+}
