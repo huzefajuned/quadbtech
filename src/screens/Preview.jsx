@@ -29,7 +29,7 @@ const Preview = () => {
     });
   }
   return (
-    <div className=" bg-[#1f2544] h-screen w-screen flex flex-col gap-10 justify-around items-center">
+    <div className=" bg-[#1f2544] h-screen w-screen flex flex-col gap-10 justify-around items-center text-white">
       <div className="flex flex-col md:flex-row items-center  p-2 ">
         <img
           src={image?.medium}
@@ -38,19 +38,19 @@ const Preview = () => {
         />
         <div className="flex-1 0 p-2">
           <h1 className="text-2xl font-bold mb-2">{name}</h1>
-          <p className="text-gray-600 mb-4">{genres.join(", ")}</p>
-          <p className="text-gray-700 mb-4">
+          <p className=" mb-4">{genres.join(", ")}</p>
+          <p className=" mb-4">
             <span className="font-semibold">Premiered:</span> {premiered}
           </p>
-          <p className="text-gray-700 mb-4">
+          <p className=" mb-4">
             <span className="font-semibold">Rating:</span>{" "}
             {rating?.average || "No rating"}
           </p>
-          <p className="text-gray-700 mb-4">
+          <p className=" mb-4">
             <span className="font-semibold">Status:</span> {status}
           </p>
           <div
-            className="mb-4 text-gray-700"
+            className="mb-4 "
             dangerouslySetInnerHTML={{ __html: summary }}
           ></div>
           {officialSite && (
@@ -65,10 +65,10 @@ const Preview = () => {
           )}
         </div>
       </div>
-      <div className=" ">
+      <div className=" p-2 ">
         <button
           onClick={() => OnClickBuyBtn(show)}
-          className="bg-blue-500 text-white py-2 px-4 rounded-md mt-4 hover:bg-blue-600"
+          className="bg-yellow-200 text-black py-2 px-4 rounded-md mt-4 hover:bg-blue-600 hover:shadow-lg"
         >
           Buy Tickets
         </button>

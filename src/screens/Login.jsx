@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/Auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 /**
  * Component for the login screen.
@@ -8,7 +9,7 @@ import { useNavigate } from "react-router-dom";
  * Handles form submission, validation, and local storage.
  */
 const Login = () => {
-  const { setIsLoggedIn } = useAuth();
+  const { setIsLoggedIn, setUser } = useAuth();
 
   /**
    * navigating
@@ -36,12 +37,14 @@ const Login = () => {
 
     // Basic validation
     if (!name || !email || !password || !confirmPassword) {
-      setError("All fields are required");
+      toast.error("All fields are required");
+
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match");
+      //   setError("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
@@ -50,6 +53,11 @@ const Login = () => {
     setIsLoggedIn(true);
     navigate("/");
 
+    // update the user state
+    const _User = JSON.parse(localStorage.getItem("user"));
+    setUser(_User);
+
+    toast.success(` Welcome ${_User?.name} 🤗 `);
     // Clear form data and error message
     setFormData({ name: "", email: "", password: "", confirmPassword: "" });
     setError("");

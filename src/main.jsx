@@ -9,6 +9,8 @@ import Header from "./components/Header";
 import { AuthProvider } from "./context/Auth";
 import Preview from "./screens/Preview";
 import BookTicket from "./screens/BookTicket";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 /**
  * Routing setup for the application...
@@ -48,5 +50,18 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    <ToastContainer
+      position="bottom-right"
+      autoClose={2000}
+      hideProgressBar
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="colored"
+      transition:Flip
+    />
   </React.StrictMode>
 );
