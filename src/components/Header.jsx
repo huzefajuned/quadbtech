@@ -7,6 +7,10 @@ const Header = () => {
   const [showDetails, setShowDetails] = useState(false);
   const navigate = useNavigate();
 
+  function showHideDetails() {
+    navigate("/tickets");
+    setShowDetails(false);
+  }
   /**
    * handle logout user
    * remove credentials from localstorage
@@ -28,7 +32,8 @@ const Header = () => {
         <img
           src="https://quadbtech.com/images/QBT%20Logo%20Black.png"
           alt="Logo"
-          className="h-10 mr-4"
+          className="h-10 mr-4 cursor-pointer"
+          onClick={() => navigate("/")}
         />
       </div>
 
@@ -45,7 +50,7 @@ const Header = () => {
               <p className="text-gray-800">Name: {user?.name}</p>
               <p className="text-gray-800">Email: {user?.email}</p>
               <p
-                onClick={() => navigate("/tickets")}
+                onClick={() => showHideDetails()}
                 className=" bg-green-500 p-1 font-semibold rounded-md cursor-pointer border-2  hover:bg-green-500 hover:text-white"
               >
                 My tickets:{" "}

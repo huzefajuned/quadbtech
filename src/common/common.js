@@ -14,3 +14,14 @@ export function generateRandomId() {
 
   return randomId;
 }
+
+/**
+ * formatDateWithMonthName
+ * @param {*} dateString
+ * @returns
+ */
+export function formatDateWithMonthName(dateString) {
+  const date = new Date(dateString);
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return new Intl.DateTimeFormat("en-US", options).format(date);
+}
