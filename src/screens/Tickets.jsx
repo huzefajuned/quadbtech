@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useAuth } from "../context/Auth";
 import { useNavigate } from "react-router-dom";
 const Tickets = () => {
@@ -11,10 +11,17 @@ const Tickets = () => {
 
   useEffect(() => {
     getBookings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="container mx-auto mt-8">
+      <button
+        onClick={() => navigate("/")}
+        className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        ◀ Go Back
+      </button>
       <h2 className="text-2xl font-bold mb-4  text-center p-2  rounded-xl text-white">
         Your Tickets 🥳🥳🥳
       </h2>

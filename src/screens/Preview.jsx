@@ -16,41 +16,35 @@ const Preview = () => {
     officialSite,
   } = show;
 
-  /**
-   * OnClickBuyBtn
-   * it will validate the user auth state first
-   * if user if authenticated
-   * then it will be redirect to booking screen
-   */
-
   function OnClickBuyBtn(show) {
     navigate("/bookTicket", {
       state: show,
     });
   }
+
   return (
-    <div className=" bg-[#1f2544] h-screen w-screen flex flex-col gap-10 justify-around items-center text-white">
-      <div className="flex flex-col md:flex-row items-center  p-2 ">
+    <div className="bg-[#1f2544] h-screen flex flex-col justify-center items-center text-white">
+      <div className="max-w-4xl px-4 py-8 mx-auto flex flex-col md:flex-row items-center gap-8">
         <img
-          src={image?.medium}
+          src={image?.medium || "https://via.placeholder.com/300"}
           alt={name}
-          className="w-full md:w-64 h-auto rounded-md mb-4 md:mr-8"
+          className="w-full md:w-72 h-auto object-cover rounded-md"
         />
-        <div className="flex-1 0 p-2">
-          <h1 className="text-2xl font-bold mb-2">{name}</h1>
-          <p className=" mb-4">{genres.join(", ")}</p>
-          <p className=" mb-4">
+        <div className="flex-1">
+          <h1 className="text-3xl font-bold mb-4">{name}</h1>
+          <p className="text-lg mb-4">{genres.join(", ")}</p>
+          <p className="text-lg mb-4">
             <span className="font-semibold">Premiered:</span> {premiered}
           </p>
-          <p className=" mb-4">
+          <p className="text-lg mb-4">
             <span className="font-semibold">Rating:</span>{" "}
             {rating?.average || "No rating"}
           </p>
-          <p className=" mb-4">
+          <p className="text-lg mb-4">
             <span className="font-semibold">Status:</span> {status}
           </p>
           <div
-            className="mb-4 "
+            className="text-lg mb-4"
             dangerouslySetInnerHTML={{ __html: summary }}
           ></div>
           {officialSite && (
@@ -65,12 +59,13 @@ const Preview = () => {
           )}
         </div>
       </div>
-      <div className=" p-2 ">
+
+      <div className="px-6 py-4  w-full flex flow-row justify-center">
         <button
           onClick={() => OnClickBuyBtn(show)}
-          className="bg-yellow-200 text-black py-2 px-4 rounded-md mt-4 hover:bg-blue-600 hover:shadow-lg"
+          className="w-44 bg-yellow-600 p-2 hover:bg-blue-700  text-green-800 hover:text-white font-normal py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          Buy Tickets
+          Buy Now 🛒
         </button>
       </div>
     </div>
