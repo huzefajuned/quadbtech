@@ -3,7 +3,7 @@ import { useAuth } from "../context/Auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 const Header = () => {
-  const { isLoggedIn, setIsLoggedIn, user, setUser } = useAuth();
+  const { isLoggedIn, setIsLoggedIn, user, setUser, bookings } = useAuth();
   const [showDetails, setShowDetails] = useState(false);
   const navigate = useNavigate();
 
@@ -44,6 +44,13 @@ const Header = () => {
             <div className="bg-white p-2 absolute top-24 right-0 border flex flex-col justify-center gap-2 border-gray-300 rounded shadow-md">
               <p className="text-gray-800">Name: {user?.name}</p>
               <p className="text-gray-800">Email: {user?.email}</p>
+              <p
+                onClick={() => navigate("/tickets")}
+                className=" bg-green-500 p-1 font-semibold rounded-md cursor-pointer border-2  hover:bg-green-500 hover:text-white"
+              >
+                My tickets:{" "}
+                {bookings?.length >= 1 ? bookings?.length : bookings?.length}
+              </p>
               <button
                 onClick={() => handleLogout()}
                 className="bg-[#1f2544] hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"

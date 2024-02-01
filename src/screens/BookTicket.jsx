@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../context/Auth";
 import { useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const BookTicket = () => {
   const { isLoggedIn, user } = useAuth();
-  const [editedEmail, setEditedEmail] = useState(user?.email);
-  const [editedName, setEditedName] = useState(user?.name);
+  const [editedEmail, setEditedEmail] = useState(user?.email || "");
+  const [editedName, setEditedName] = useState(user?.name || "");
+  const [selectedDate, setSelectedDate] = useState(""); // State to store selected date
   const navigate = useNavigate();
   const { state } = useLocation();
   const { name, image, genres, premiered, rating, status } = state;
@@ -17,15 +19,43 @@ const BookTicket = () => {
     }
   }, [isLoggedIn, navigate]);
 
-  /**
-   * Book ticket function
-   *  save ticker info in localstorage
-   *  save in array form ( user can buy multiple tickets too...)
-   */
-
+  // Function to book a ticket
   function onBookTicket() {
-    alert("hii");
+    // Create ticket object
+    const ticket = {
+      movie: {
+        name,
+        image: image?.medium,
+        genres,
+        premiered,
+        rating: rating?.average,
+        status,
+      },
+      user: {
+        name: editedName,
+        email: editedEmail,
+      },
+      date: selectedDate,
+    };
+
+    // Retrieve existing bookings from local storage
+    const existingBookings = JSON.parse(
+      localStorage.getItem("bookings") || "[]"
+    );
+
+    // Save new ticket in bookings array
+    const updatedBookings = [...existingBookings, ticket];
+
+    // Save updated bookings array in local storage
+    localStorage.setItem("bookings", JSON.stringify(updatedBookings));
+
+    // Alert successful booking
+    setTimeout(() => {
+      toast.success("Ticket booked successfully!");
+      navigate("/tickets");
+    }, 10);
   }
+
   // Return null if not authenticated
   if (!isLoggedIn) return null;
 
@@ -66,6 +96,20 @@ const BookTicket = () => {
             value={editedName}
             onChange={(e) => setEditedName(e.target.value)}
             placeholder="Enter name"
+            className="text-gray-700 text-sm mb-2 border border-gray-300 rounded py-1 px-2 w-full"
+          />
+        </div>
+
+        {/* Select Date */}
+        <div className="px-6 py-2 border-t border-gray-200">
+          <label htmlFor="date" className="text-gray-700 text-sm mb-2 block">
+            Select Date:
+          </label>
+          <input
+            type="date"
+            id="date"
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
             className="text-gray-700 text-sm mb-2 border border-gray-300 rounded py-1 px-2 w-full"
           />
         </div>

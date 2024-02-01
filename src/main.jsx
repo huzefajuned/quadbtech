@@ -11,6 +11,7 @@ import Preview from "./screens/Preview";
 import BookTicket from "./screens/BookTicket";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Tickets from "./screens/Tickets";
 
 /**
  * Routing setup for the application...
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/bookTicket",
     element: <BookTicket />,
+  },
+  {
+    path: "/tickets",
+    element: <Tickets />,
   },
 ]);
 

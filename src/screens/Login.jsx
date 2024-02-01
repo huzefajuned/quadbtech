@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/Auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,12 +9,19 @@ import { toast } from "react-toastify";
  * Handles form submission, validation, and local storage.
  */
 const Login = () => {
-  const { setIsLoggedIn, setUser } = useAuth();
+  const { isLoggedIn, setIsLoggedIn, user, setUser } = useAuth();
+  const navigate = useNavigate();
 
+  /**
+   * if user is already  loggedIn
+   * navigate to home route
+   */
+  useEffect(() => {
+    isLoggedIn && navigate("/");
+  }, []);
   /**
    * navigating
    */
-  const navigate = useNavigate();
 
   // State for form data and error message
   const [formData, setFormData] = useState({
@@ -65,9 +72,9 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#1f2544]">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
+      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-2xl border-2 ">
         <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-4">
-          Sign in to your account
+          Create your account 🔏🔏
         </h2>
         {error && (
           <p className="text-center text-sm text-red-600 mb-4">{error}</p>
